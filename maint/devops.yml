@@ -1,0 +1,10 @@
+native:
+  debian:
+    packages:
+      # required for sphinxbase
+      - bison
+      - swig
+
+      # required for pocketsphinx GStreamer plugin
+      - libgstreamer1.0-dev
+      - libgstreamer-plugins-base1.0-dev

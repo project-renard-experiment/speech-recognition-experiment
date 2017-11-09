@@ -1,0 +1,17 @@
+#!/bin/sh
+
+CURDIR=$( cd `dirname "$0"` && pwd )
+cd "$CURDIR"
+
+SRC_DIR="$CURDIR/../src"
+BUILD_DIR="$CURDIR/../build"
+
+# sudo apt install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
+
+git clone https://github.com/cmusphinx/pocketsphinx.git $SRC_DIR/pocketsphinx
+cd $SRC_DIR/pocketsphinx
+./autogen.sh
+./configure --without-python --prefix="$BUILD_DIR"
+make clean all
+make check
+make install
